@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <style>
+    .main-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    table,
+    thead,
+    tr,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    table {
+      width: 70%;
+      max-width: 1000px;
+    }
+
+    .addData {
+      max-width: 1000px;
+      margin: 20px 50px;
+      /* text-align: center; */
+    }
+
+    .tdImg, .imgPreview {
+      width: 150px;
+      height: 150px;
+    }
+  </style>
+  <body>
+    <h1>관리자 페이지</h1>
+    <div>
+      <div>
+        <div class="imgWrap">
+          <img class="imgPreview" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="add image" />
+          <span>이미지 미리보기</span>
+        </div>
+        <div>
+          <input class="uploadName" value="첨부파일" placeholder="첨부파일" readonly />
+          <label for="file">파일 찾기</label>
+          <input type="file" name="file" id="file" />
+        </div>
+      </div>
+      <div style="margin-bottom: 20px">
+        <input id="userId" type="number" placeholder="유저id 등록" />
+        <input id="name" type="text" placeholder="작품명" />
+        <input id="comment" type="text" placeholder="상세내용" />
+        <input id="aiInfo" type="text" placeholder="AI 모델 정보" />
+        <button onclick="createData()">등록</button>
+      </div>
+    </div>
+
+    <div class="main-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>userid</th>
+            <th>이미지</th>
+            <th>제목</th>
+            <th>상세내용</th>
+            <th>AI 모델</th>
+            <th>수정</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody class="inputData">
+          <% for (let i = 0; i < exhibition.length; i++ ) { %>
+          <tr id="tr_<%= exhibition[i].id %>">
+            <td><%= exhibition[i].userid %></td>
+            <td><a href="/exhibition/detail/<%= exhibition[i].id %>"><img class="tdImg" src="<%= exhibition[i].img %>" alt="generative AI Img"></a></td>
+            <td><a href="/exhibition/detail/<%= exhibition[i].id %>"><%= exhibition[i].name %></a></td>
+            <td><%= exhibition[i].comment %></td>
+            <td><%= exhibition[i].aiInfo %></td>
+            <td><button onclick="updatePage('<%= exhibition[i].id %>')">수정</button></td>
+            <td><button onclick="deleteExhibition('<%= exhibition[i].id %>')">삭제</button></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script>
+    // 전역변수 선언
+    let userInfo = {
+      img: null,
+      userid: null,
+      name: null,
+      comment: null,
+      aiInfo: null,
+    };
+
+    // 이미지 업로드 전 미리보기
+    const file = document.getElementById("file");
+    const imgPreview = document.querySelector(".imgPreview");
+
+    const previewImgFunc = () => {
+      console.log(file.files[0]);
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        imgPreview.src = e.target.result;
+        imgPreview.style.display = "inline-block";
+      };
+      reader.readAsDataURL(file.files[0]);
+    };
+    file.addEventListener("change", previewImgFunc);
+
+    // input value 이미지 이름으로 변경
+    const uploadName = document.querySelector(".uploadName");
+
+    const changeInputName = () => {
+      uploadName.value = file.value;
+    };
+    file.addEventListener("change", changeInputName);
+
+    // axios로 이미지 파일 업로드
+    const uploadFile = async () => {
+      const formData = new FormData();
+      // console.log(file.files[0]);
+      formData.append("file", file.files[0]);
+
+      await axios({
+        method: "post",
+        url: "/uploadImg",
+        data: formData,
+      })
+        .then((res) => {
+          console.log(res.data.url);
+
+          // 이미지 주소 전역변수에 저장
+          userInfo.img = res.data.url;
+          // imgTrue = true;
+          // ifTrue();
+        })
+        .catch((err) => {
+          console.error("오류: " + err);
+          // imgTrue = false;
+          // ifTrue();
+        });
+    };
+    file.addEventListener("change", uploadFile);
+
+    // 방명록 등록
+    const userId = document.getElementById("userId");
+    const names = document.getElementById("name");
+    const comment = document.getElementById("comment");
+    const aiInfo = document.getElementById("aiInfo");
+
+    const createData = () => {
+      userInfo.userid = userId.value;
+      userInfo.name = names.value;
+      userInfo.comment = comment.value;
+      userInfo.aiInfo = aiInfo.value;
+
+      axios({
+        method: "post",
+        url: "/exhibition/post/test",
+        data: { ...userInfo },
+      })
+        .then((res) => {
+          console.log(res.data);
+          alert("등록 성공");
+          window.location.reload(); // 등록 성공하면 새로고침
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    };
+
+    // 방명록 삭제
+    const deleteExhibition = (id) => {
+      axios({
+        method: "delete",
+        url: `/exhibition/delete/${id}`,
+      })
+        .then((res) => {
+          alert("삭제 성공");
+          window.location.reload();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    };
+
+    // 방명록 수정
+    const updatePage = (id) => {
+      window.location.href = `http://localhost:3000/exhibition/write/${id}`;
+    };
+  </script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>상세페이지</h1>
+  <% exhibitionOne.forEach((user) => { %>
+    <img src="<%= user.img %>">
+    <h3>작품명 : <%= user.name %></h3>
+    <h3>AI 모델 : <%= user.aiInfo %></h3>
+    <h3>상세 : <%= user.comment %></h3>
+  <% }) %>
+
+
+</body>
+</html>
