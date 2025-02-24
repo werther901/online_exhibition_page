@@ -4,100 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/css/write.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
+  
   <body>
-    <h1>수정 페이지</h1>
+    <div>수정하기</div>
+    <div class="container">
+      <form name="updateData">
+        <div>
+          <img class="imgWrap" src="<%= exhibitionOne[0].img %>" alt="detail img" />
+        </div>
+        <div>
+          <input class="writeImg" type="file" name="file" id="file" />
+          <input class="inputField input_w" placeholder="첨부파일" type="text" readonly>
+          <label class="inputLabel" for="file">파일 선택</label>
+        </div>
+        <div>
+          <span>userid</span>
+          <input class="inputField" id="userId" type="text" value="<%= exhibitionOne[0].userid %>" />
+        </div>
+        <div>
+        <div>
+          <span>작품명</span>
+          <input class="inputField" id="name" name="name" type="text" value="<%= exhibitionOne[0].name %>" />
+        </div>
+        <div>
+          <span>AI 모델</span>
+          <input class="inputField" id="aiInfo" name="aiInfo" type="text" value="<%= exhibitionOne[0].aiInfo %>" />
+        </div>
+        <div>
+          <span>상세내용</span>
+          <input class="inputField" id="comment" name="comment" type="text" value="<%= exhibitionOne[0].comment %>" />
+        </div>
+        <div>
+          <button class="submitBtn" type="button" onclick="updateForm('<%= exhibitionOne[0].id %>')">수정하기</button>
+        </div>
+      </form>
+    </div>
 
-    <form name="updateData">
-      <div>
-        <img class="imgWrap" src="<%= exhibitionOne[0].img %>" alt="detail img" />
-      </div>
-      <div>
-        <input class="writeImg" type="file" name="file" id="file" />
-      </div>
-      <div>
-        작품명
-        <input name="name" type="text" value="<%= exhibitionOne[0].name %>" />
-      </div>
-      <div>
-        상세내용
-        <input name="comment" type="text" value="<%= exhibitionOne[0].comment %>" />
-      </div>
-      <div>
-        AI 모델
-        <input name="aiInfo" type="text" value="<%= exhibitionOne[0].aiInfo %>" />
-      </div>
-      <button type="button" onclick="updateForm('<%= exhibitionOne[0].id %>')">수정</button>
-    </form>
+
   </body>
-  <script>
-    // 전역변수 선언
-    let data = {
-      id: null,
-      name: null,
-      comment: null,
-      aiInfo: null,
-      img: null,
-    };
-    // 데이터 수정
-    const updateForm = (id) => {
-      const form = document.forms["updateData"];
-      // console.log(form['name'].value)
-      data.id = id;
-      data.name = form["name"].value;
-      data.comment = form["comment"].value;
-      data.aiInfo = form["aiInfo"].value;
 
-      console.log(data);
-
-      axios({
-        method: "put",
-        url: "/exhibition/update",
-        data: data,
-      })
-        .then((res) => {
-          console.log(res.data);
-          window.location.href = 'http://localhost:3000/exhibition/registration';
-        })
-        .catch((e) => console.log("데이터 수정 오류 : ", e));
-    };
-
-    // 이미지 교체
-    const imgWrap = document.querySelector(".imgWrap");
-    const file = document.getElementById("file");
-
-    const uploadFile = async () => {
-      const formData = new FormData();
-      // console.log(file.files[0]);
-      formData.append("file", file.files[0]);
-
-      await axios({
-        method: "post",
-        url: "/uploadImg",
-        data: formData,
-      })
-        .then((res) => {
-          // console.log(res.data.url);
-          data.img = res.data.url;
-        })
-        .catch((err) => {
-          console.error("이미지 수정 오류: " + err);
-        });
-    };
-    file.addEventListener("change", uploadFile);
-
-    // 이미지 업로드 전 미리보기
-    const previewImgFunc = () => {
-      console.log(file.files[0]);
-
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        imgWrap.src = e.target.result;
-        imgWrap.style.display = "inline-block";
-      };
-      reader.readAsDataURL(file.files[0]);
-    };
-    file.addEventListener("change", previewImgFunc);
-  </script>
+  <script src="/js/write.js"></script>
 </html>

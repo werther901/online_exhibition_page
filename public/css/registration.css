@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  font-family: "Pretendard-Regular", sans-serif;
+  /* overflow: hidden; */
+}
+
+div {
+  box-sizing: border-box;
+}
+
+ul,
+p,
+li {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  /* text-decoration: none; */
+  color: #333;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  padding: 20px;
+}
+
+table,
+thead,
+tr,
+th,
+td {
+  border: 1px solid #a6a6a6;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table {
+  width: 70%;
+  max-width: 1000px;
+}
+
+.head_container {
+  border: 1px solid gainsboro;
+  width: 100%;
+  padding: 20px 10px 0 10px;
+}
+
+.head_wrap {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.inputLabel {
+  display: inline-block;
+  background-color: #74b0ff;
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.inputLabel:hover {
+  background-color: #8abdffd0;
+}
+
+.inputField:focus {
+  outline: none;
+}
+
+.inputField {
+  width: 61%;
+  padding: 6px;
+  /* border-radius: 8px; */
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: gray;
+}
+
+.writeImg {
+  display: none;
+}
+
+.input_container div {
+  margin-bottom: 10px;
+}
+
+.addData {
+  max-width: 1000px;
+  margin: 20px 50px;
+  /* text-align: center; */
+}
+
+.imgWrap_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgWrap {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+}
+
+.imgSpan {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  color: #d6d4d4;
+  top: 50%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.imgPreview {
+  width: 170px;
+  height: 170px;
+  border: 1px solid #dedede;
+}
+
+.tdImg {
+  width: 170px;
+  height: 170px;
+}
+
+.input_container {
+  width: 52%;
+}
+
+.input_container input {
+  width: 100%;
+  border: 1px solid #dedede;
+  background-color: rgb(248, 248, 248);
+  outline: none;
+  height: 23px;
+}
+
+.comment_container {
+  width: 100%;
+  height: 100%;
+  /* background-color: blue; */
+  border: 1px solid gainsboro;
+}
+
+#editor {
+  width: 98.2%;
+  height: 100%;
+  padding: 10px 10px;
+}
+
+.regisBtn {
+  border: 1px solid #74b0ff;
+}
+
+.main-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}

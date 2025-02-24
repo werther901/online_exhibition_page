@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  font-family: "Pretendard-Regular", sans-serif;
+  /* overflow: hidden; */
+}
+
+div {
+  box-sizing: border-box;
+}
+
+ul,
+p,
+li {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #717171;
+}
+
+button {
+  all: unset;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  margin: 20px 0 98px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgWrap {
+  width: 350px;
+  text-align: center;
+}
+
+.writeImg {
+  display: none;
+}
+
+.inputLabel {
+  display: inline-block;
+  background-color: #74b0ff;
+  padding: 8px 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.inputLabel:hover {
+  background-color: #8abdffd0;
+}
+
+.inputField:focus {
+  outline: none;
+}
+
+.inputField {
+  width: 94%;
+  padding: 7px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.input_w {
+  width: 70%;
+}
+
+.submitBtn {
+  background-color: #74b0ff;
+  color: white;
+  padding: 9px 17px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.1s ease;
+  width: 89%;
+  text-align: center;
+  display: inline-block;
+}
+
+.submitBtn:hover {
+  background-color: #5c9eff;
+}

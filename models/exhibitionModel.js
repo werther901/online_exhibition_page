@@ -24,6 +24,7 @@ const getOne = async (userId) => {
 
 // 데이터 등록하기
 const postData = async (data) => {
+  console.log(data);
   // return '확인완료';
   try {
     const query = `INSERT INTO users (userid, name, comment, img, aiInfo) VALUES (?, ?, ?, ?, ?)`;

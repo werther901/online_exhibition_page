@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const upload = require('../middleWare/multer')
 const exhibitionController = require('../controllers/exhibitionController');
 
 router.get('/', exhibitionController.exhibitionController);
 
 router.get('/registration', exhibitionController.exhibition);
 
-router.post('/post/test', exhibitionController.createTest);
+router.post('/post/test', upload.single('img'), exhibitionController.createTest);
 
-router.put('/update', exhibitionController.dataUpdate);
+router.put('/update', upload.single('img'), exhibitionController.dataUpdate);
 
 
 // 해당 아이디로
