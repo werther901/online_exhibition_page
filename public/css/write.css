@@ -86,6 +86,10 @@ button {
   width: 70%;
 }
 
+#editor {
+  width: 600px;
+}
+
 .submitBtn {
   background-color: #74b0ff;
   color: white;

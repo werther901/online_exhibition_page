@@ -52,11 +52,12 @@ a {
   background-color: #fff;
   transition: 0.3s;
   color: #fff;
-}
-
-.on {
   border-bottom: 1px solid rgba(25, 27, 38, 0.08);
 }
+
+/* .on {
+  border-bottom: 1px solid rgba(25, 27, 38, 0.08);
+} */
 
 .funnel-display-logo.black {
   color: #191b26;
@@ -96,12 +97,13 @@ a {
 
 main {
   flex: 1;
-  padding: 0 32px;
+  padding: 0 38px;
   /* margin-bottom: 100px; */
 }
 
 .main_container {
   display: flex;
+  justify-content: space-between;
   max-width: 1046px;
   margin: 0 auto;
 }
@@ -114,7 +116,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 568px;
+  width: 596px;
   gap: 16px;
 }
 
@@ -133,7 +135,8 @@ main {
 }
 
 .img_j_container {
-  display: flex; 
+  display: flex;
+  position: relative;
 }
 
 .img_container {
@@ -147,7 +150,7 @@ main {
 }
 
 .imgM {
-  margin-left: 10px;
+  margin-left: 16px;
 }
 
 .image {
@@ -230,7 +233,18 @@ main {
 }
 
 
-
+.mistDiv {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 24px 24px;
+  height: 135px;
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0), #fff);
+}
 
 
 

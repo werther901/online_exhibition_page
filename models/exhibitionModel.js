@@ -22,6 +22,13 @@ const getOne = async (userId) => {
   return rows;
 };
 
+// id 중복검사
+const getIdCheck = async (userId) => {
+  const query = `SELECT * FROM users WHERE userid = ?`;
+  const [rows] = await pool.query(query, [userId]);
+  return rows;
+};
+
 // 데이터 등록하기
 const postData = async (data) => {
   console.log(data);
@@ -56,4 +63,4 @@ const updateRow = async (data) => {
   };
 }
 
-module.exports = { getAll, getOne, postData, deleteRow, updateRow };
+module.exports = { getAll, getOne, postData, deleteRow, updateRow, getIdCheck };

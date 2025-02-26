@@ -7,6 +7,8 @@ router.get('/', exhibitionController.exhibitionController);
 
 router.get('/registration', exhibitionController.exhibition);
 
+router.get('/idCheck', exhibitionController.inspectId);
+
 router.post('/post/test', upload.single('img'), exhibitionController.createTest);
 
 router.put('/update', upload.single('img'), exhibitionController.dataUpdate);

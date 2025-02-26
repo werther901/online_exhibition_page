@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-    <link rel="stylesheet" href="/css/registration.css">
+    <link rel="stylesheet" href="/css/registration.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
-
     <div class="container">
-      <div><p>작품 등록</p></div>
+      <div class="regis_container">
+        <p>작품 등록</p>
+      </div>
       <div class="head_container">
         <div class="head_wrap">
           <div class="imgWrap_wrap">
@@ -27,14 +28,18 @@
             </div>
           </div>
           <div class="input_container">
-            <div>
-              <input id="userId" type="number" placeholder="유저id" />
+            <div class="inputDiv" style="margin-bottom: 10px;">
+              <div style="width: 85%;">
+                <input id="userId" type="number" placeholder="유저id" />
+              </div>
+              <div>
+                <button class="idCheck_btn">중복확인</button>
+              </div>
             </div>
+            <div class="dupcont"></div>
+            
             <div>
               <input id="name" type="text" placeholder="작품명" />
-            </div>
-            <div>
-              <input id="comment" type="text" placeholder="상세내용" />
             </div>
             <div>
               <input id="aiInfo" type="text" placeholder="AI 모델 정보" />
@@ -42,23 +47,20 @@
           </div>
         </div>
       </div>
-      
+
       <div>
-        <div>상세설명</div>
+        <div class="detail_comment">
+          <p>상세내용</p>
+        </div>
         <div class="comment_container">
           <div>
             <div id="editor"></div>
           </div>
         </div>
       </div>
-      
-      <div>
-        <button class="editValue">에디터 값</button>
+      <div class="regisBtn_div">
+        <button class="inputLabel regisBtn" onclick="createData()">등 록</button>
       </div>
-      <div>
-        <button class="inputLabel regisBtn" onclick="createData()">등록</button>
-      </div>
-
     </div>
 
     <div class="main-wrap">
@@ -75,8 +77,7 @@
           </tr>
         </thead>
         <tbody class="inputData">
-          <% for (let i = 0; i < exhibition.length
-          ; i++ ) { %>
+          <% for (let i = 0; i < exhibition.length ; i++ ) { %>
           <tr id="tr_<%= exhibition[i].id %>">
             <td><%= exhibition[i].userid %></td>
             <td>
@@ -85,17 +86,19 @@
             <td><a href="/exhibition/detail/<%= exhibition[i].id %>"><%= exhibition[i].name %></a></td>
             <td><%= exhibition[i].comment %></td>
             <td><%= exhibition[i].aiInfo %></td>
-            <td><button onclick="updatePage('<%= exhibition[i].id %>')">수정</button></td>
-            <td><button onclick="deleteExhibition('<%= exhibition[i].id %>')">삭제</button></td>
+            <td class="btn_td">
+              <button class="table_btn" onclick="updatePage('<%= exhibition[i].id %>')">수정</button>
+            </td>
+            <td class="btn_td">
+              <button class="table_btn" onclick="deleteExhibition('<%= exhibition[i].id %>')">삭제</button>
+            </td>
           </tr>
           <% } %>
         </tbody>
       </table>
     </div>
-
-    
   </body>
-  
+
   <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <script src="/js/registration.js"></script>
 </html>

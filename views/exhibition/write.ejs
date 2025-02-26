@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
     <link rel="stylesheet" href="/css/write.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -17,7 +18,7 @@
         </div>
         <div>
           <input class="writeImg" type="file" name="file" id="file" />
-          <input class="inputField input_w" placeholder="첨부파일" type="text" readonly>
+          <input class="inputField input_w" value="<%= exhibitionOne[0].img %>" type="text" readonly>
           <label class="inputLabel" for="file">파일 선택</label>
         </div>
         <div>
@@ -33,10 +34,11 @@
           <span>AI 모델</span>
           <input class="inputField" id="aiInfo" name="aiInfo" type="text" value="<%= exhibitionOne[0].aiInfo %>" />
         </div>
-        <div>
+        <div id="editor"><%- exhibitionOne[0].comment %></div>
+        <!-- <div>
           <span>상세내용</span>
           <input class="inputField" id="comment" name="comment" type="text" value="<%= exhibitionOne[0].comment %>" />
-        </div>
+        </div> -->
         <div>
           <button class="submitBtn" type="button" onclick="updateForm('<%= exhibitionOne[0].id %>')">수정하기</button>
         </div>
@@ -46,5 +48,6 @@
 
   </body>
 
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
   <script src="/js/write.js"></script>
 </html>

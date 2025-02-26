@@ -1,3 +1,13 @@
+
+// Toast editor 적용
+const Editor = toastui.Editor;
+const editor = new Editor({
+    el: document.querySelector('#editor'),
+    height: '400px',
+    initialEditType: 'wysiwyg',
+    previewStyle: 'vertical'
+});
+
 // 이미지 업로드 전 미리보기
 const file = document.getElementById("file");
 const imgPreview = document.querySelector(".imgPreview");
@@ -15,18 +25,43 @@ const previewImgFunc = () => {
 file.addEventListener("change", previewImgFunc);
 
 // input value 이미지 이름으로 변경
-const uploadName = document.querySelector(".uploadName");
+const inputField = document.querySelector(".inputField");
 
 const changeInputName = () => {
-  uploadName.value = file.value;
+  inputField.value = file.value;
 };
 file.addEventListener("change", changeInputName);
 
-// '등록' 버튼 누르면 이미지 uploads 파일에 저장
+// userid 중복 검사
 const userId = document.getElementById("userId");
+const idCheck_btn = document.querySelector('.idCheck_btn');
+const dupcont = document.querySelector('.dupcont');
+
+const idCheck = async () => {
+  // console.log(userId.value);
+
+  await axios({
+    method: "get",
+    url: "/exhibition/idCheck",
+    params: {userId: userId.value},
+  }).then((res) => {
+    if (res.data) {
+      dupcont.innerHTML = `<div style="color: red">중복된 아이디 입니다.</div>`;
+    } else {
+      dupcont.innerHTML = `<div style="color: blue">사용가능한 아이디 입니다.</div>`;
+    }
+  }).catch((err) => {
+    console.log("id check err : ", err);
+  });
+}
+idCheck_btn.addEventListener('click', idCheck);
+
+
+// '등록' 버튼 누르면 이미지 uploads 파일에 저장
 const names = document.getElementById("name");
-const comment = document.getElementById("comment");
+// const comment = document.getElementById("comment");
 const aiInfo = document.getElementById("aiInfo");
+
 
 const createData = async () => {
   // 이미지 저장
@@ -35,12 +70,15 @@ const createData = async () => {
   formData.append("img", file.files[0]);
   formData.append("userid", userId.value);
   formData.append("name", names.value);
-  formData.append("comment", comment.value);
+  // formData.append("comment", comment.value);
+  // const htmlContent = editor.getHTML();
+  formData.append("comment", editor.getHTML());
   formData.append("aiInfo", aiInfo.value);
 
-  for (const pair of formData.entries()) {
-    console.log(pair[0], pair[1]); // 콘솔에서 데이터 확인 가능
-  }
+  // 콘솔에서 데이터 확인 가능
+  // for (const pair of formData.entries()) {
+  //   console.log(pair[0], pair[1]); 
+  // }
 
   await axios({
     method: "post",
@@ -48,7 +86,7 @@ const createData = async () => {
     data: formData,
   })
     .then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
       alert("등록 성공");
       window.location.reload(); // 새로고침
     })
@@ -76,21 +114,3 @@ const deleteExhibition = (id) => {
 const updatePage = (id) => {
   window.location.href = `http://localhost:3000/exhibition/write/${id}`;
 };
-
-// Toast editor 적용
-const Editor = toastui.Editor;
-const editor = new Editor({
-    el: document.querySelector('#editor'),
-    height: '500px',
-    initialEditType: 'wysiwyg',
-    previewStyle: 'vertical'
-});
-
-// Toast editor 값 불러오기(임시)
-const editValue = document.querySelector('.editValue');
-
-const clickEdit = () => {
-  const htmlContent = editor.getHTML(); 
-  console.log(htmlContent);
-}
-editValue.addEventListener('click', clickEdit);
