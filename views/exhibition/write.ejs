@@ -10,10 +10,10 @@
   </head>
   
   <body>
-    <div>수정하기</div>
+    <div class="edit_title">수정하기</div>
     <div class="container">
       <form name="updateData">
-        <div>
+        <div style="text-align: center;">
           <img class="imgWrap" src="<%= exhibitionOne[0].img %>" alt="detail img" />
         </div>
         <div>
@@ -34,12 +34,13 @@
           <span>AI 모델</span>
           <input class="inputField" id="aiInfo" name="aiInfo" type="text" value="<%= exhibitionOne[0].aiInfo %>" />
         </div>
+        <div style="margin-bottom: 10px;">상세내용</div>
         <div id="editor"><%- exhibitionOne[0].comment %></div>
         <!-- <div>
           <span>상세내용</span>
           <input class="inputField" id="comment" name="comment" type="text" value="<%= exhibitionOne[0].comment %>" />
         </div> -->
-        <div>
+        <div class="sub_btn_div">
           <button class="submitBtn" type="button" onclick="updateForm('<%= exhibitionOne[0].id %>')">수정하기</button>
         </div>
       </form>

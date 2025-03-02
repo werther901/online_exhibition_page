@@ -26,23 +26,24 @@
               <input class="inputField" value="첨부파일" placeholder="첨부파일" readonly />
               <label class="inputLabel" for="file">파일 찾기</label>
             </div>
+            <div class="dupcont04"></div>
           </div>
           <div class="input_container">
             <div class="inputDiv" style="margin-bottom: 10px;">
-              <div style="width: 85%;">
-                <input id="userId" type="number" placeholder="유저id" />
-              </div>
-              <div>
-                <button class="idCheck_btn">중복확인</button>
-              </div>
+              <!-- <span>userId</span> -->
+              <input id="userId" type="number" placeholder="유저id" />
+              <button class="idCheck_btn">중복확인</button>
+              <div class="dupcont"></div>
             </div>
-            <div class="dupcont"></div>
-            
             <div>
+              <!-- <span>제목</span> -->
               <input id="name" type="text" placeholder="작품명" />
+              <div class="dupcont02"></div>
             </div>
             <div>
+              <!-- <span>AI 모델</span> -->
               <input id="aiInfo" type="text" placeholder="AI 모델 정보" />
+              <div class="dupcont03"></div>
             </div>
           </div>
         </div>
@@ -58,6 +59,7 @@
           </div>
         </div>
       </div>
+      <div class="dupcont05"></div>
       <div class="regisBtn_div">
         <button class="inputLabel regisBtn" onclick="createData()">등 록</button>
       </div>

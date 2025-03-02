@@ -84,6 +84,7 @@ a {
   margin: 0 auto;
   justify-content: space-between;
   /* position: relative; */
+  transition: 0.3s;
 }
 
 .funnel-display-logo {
@@ -147,6 +148,14 @@ main {
 .imgWrap {
   position: relative;
   /* flex: 1; */
+}
+
+.m_imgWrap {
+  display: none;
+}
+
+.m_m_imgWrap {
+  display: none;
 }
 
 .imgM {
@@ -261,6 +270,7 @@ main {
 }
 
 .profileBox {
+  transition: 0.3s;
   box-sizing: content-box;
   border: 1px solid #ebecf0;
   border-radius: 16px;
@@ -501,4 +511,135 @@ main {
 .footer_div_svg svg {
   width: 20px;
   height: 20px;
+}
+
+@media screen and (max-width: 1050px) {
+  .headerWrap_02, main  {
+    padding: 0 24px;
+  }
+
+  .detail_container {
+    width: 544px;
+  }
+
+  .footerWrap {
+    padding: 64px 24px;
+  }
+
+}
+
+@media screen and (max-width: 945px) {
+  .main_container {
+    justify-content: center;
+  }
+
+  .detail_container {
+    width: 755px;
+  }
+
+  .detail_items {
+    width: 100%;
+  }
+
+  .detail_img_div {
+    width: 489px;
+  }
+
+  .detail_cont {
+    align-self: center;
+  }
+
+  .profile_container {
+    display: none;
+  }
+
+  .img_j_container {
+    justify-content: center;
+  }
+
+  .image {
+    width: 240px;
+  }
+
+}
+
+@media screen and (max-width: 785px) {
+  .detail_img_div {
+    width: 550px;
+  }
+
+  .img_container {
+    margin-top: 66px;
+  }
+
+  .imgWrap {
+    display: none;
+  }
+
+  .m_imgWrap {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .m_m_imgWrap {
+    display: none;
+  }
+
+  .image {
+    width: 306px;
+    margin-bottom: 21px;
+  }
+
+  .link_img img {
+    width: 100%;
+  }
+
+  /* .imgM {
+    margin-left: 27px;
+  } */
+}
+
+@media screen and (max-width: 655px) {
+  .header_title {
+    display: none;
+  }
+
+  .m_imgWrap {
+    display: none;
+  }
+
+  .m_m_imgWrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image {
+    width: 364px;
+  }
+
+  .detail_img_div {
+    width: 468px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .detail_img_div {
+    width: 340px;
+  }
+
+  .image {
+    width: 300px;
+  }
+
+  .img_container {
+    padding: 0 21px;
+  }
+
+  .funnel-display-logo,
+  .funnel-display-logo02 {
+    font-size: 26px;
+  }
+
+   
 }

@@ -38,15 +38,30 @@ button {
   font-style: normal;
 }
 
+.edit_title {
+  font-size: 24px;
+  width: 683px;
+  background-color: #c6c6c6;
+  margin: 0 auto;
+  padding: 10px;
+  color: #fff;
+  margin-top: 20px;
+}
+
 .container {
-  margin: 20px 0 98px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #c6c6c6;
+  padding: 20px 20px;
+  width: 683px;
+  margin: 0 auto;
+  /* margin-top: 20px; */
+  margin-bottom: 60px;
 }
 
 .imgWrap {
-  width: 350px;
+  width: 433px;
   text-align: center;
 }
 
@@ -74,7 +89,7 @@ button {
 }
 
 .inputField {
-  width: 94%;
+  width: 97.3%;
   padding: 7px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -83,11 +98,16 @@ button {
 }
 
 .input_w {
-  width: 70%;
+  width: 82%;
+  margin-right: 4px;
 }
 
 #editor {
   width: 600px;
+}
+
+.sub_btn_div {
+  margin-top: 14px;
 }
 
 .submitBtn {
@@ -99,7 +119,7 @@ button {
   cursor: pointer;
   font-size: 15px;
   transition: background-color 0.1s ease;
-  width: 89%;
+  width: 94.4%;
   text-align: center;
   display: inline-block;
 }

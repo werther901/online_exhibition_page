@@ -24,8 +24,8 @@
                   <div>
                     <p><strong><%= user.name %></strong> | <%= user.aiInfo %></p>
                   </div>
-                  <br>
-                  <div style="font-size: 15px;">
+                  <br />
+                  <div style="font-size: 15px">
                     <p><%- user.comment %></p>
                   </div>
                 </div>
@@ -38,62 +38,169 @@
             <div class="img_j_container">
               <div class="imgWrap">
                 <% exhibition.forEach((item, i) => { if (i % 3 === 1) { %>
-                  <div class="image">
-                    <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
-                    <div class="overlay_wrap">
-                      <div class="overlay_top">
-                        <div class="overlay_svg_div">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
-                        </div>
-                        <div class="overlay_svg_div">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
-                        </div>
+                <div class="image">
+                  <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
+                  <div class="overlay_wrap">
+                    <div class="overlay_top">
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                          <path
+                            d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                          />
+                        </svg>
                       </div>
-                      <div class="overlay_bottom"></div>
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                          />
+                        </svg>
+                      </div>
                     </div>
+                    <div class="overlay_bottom"></div>
                   </div>
-                  <% } }) %>
+                </div>
+                <% } }) %>
               </div>
               <div class="imgWrap imgM">
                 <% exhibition.forEach((item, i) => { if (i % 3 === 2) { %>
-                  <div class="image">
-                    <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
-                    <div class="overlay_wrap">
-                      <div class="overlay_top">
-                        <div class="overlay_svg_div">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
-                        </div>
-                        <div class="overlay_svg_div">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
-                        </div>
+                <div class="image">
+                  <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
+                  <div class="overlay_wrap">
+                    <div class="overlay_top">
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                          <path
+                            d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                          />
+                        </svg>
                       </div>
-                      <div class="overlay_bottom"></div>
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                          />
+                        </svg>
+                      </div>
                     </div>
+                    <div class="overlay_bottom"></div>
                   </div>
-                  <% } }) %>
+                </div>
+                <% } }) %>
               </div>
               <div class="imgWrap imgM">
                 <% exhibition.forEach((item, i) => { if (i % 3 === 0) { %>
-                  <div class="image">
-                    <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
-                    <div class="overlay_wrap">
-                      <div class="overlay_top">
-                        <div class="overlay_svg_div">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"/></svg>
-                        </div>
-                        <div class="overlay_svg_div">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
-                        </div>
+                <div class="image">
+                  <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
+                  <div class="overlay_wrap">
+                    <div class="overlay_top">
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                          <path
+                            d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                          />
+                        </svg>
                       </div>
-                      <div class="overlay_bottom"></div>
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                          />
+                        </svg>
+                      </div>
                     </div>
+                    <div class="overlay_bottom"></div>
                   </div>
-                  <% } }) %>
+                </div>
+                <% } }) %>
               </div>
+
+              <div class="m_imgWrap">
+                <% exhibition.forEach((item, i) => { if (i % 2 === 1) { %>
+                <div class="image">
+                  <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
+                  <div class="overlay_wrap">
+                    <div class="overlay_top">
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                          <path
+                            d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="overlay_bottom"></div>
+                  </div>
+                </div>
+                <% } }) %>
+              </div>
+              <div class="m_imgWrap imgM">
+                <% exhibition.forEach((item, i) => { if (i % 2 === 0) { %>
+                <div class="image">
+                  <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
+                  <div class="overlay_wrap">
+                    <div class="overlay_top">
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                          <path
+                            d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="overlay_bottom"></div>
+                  </div>
+                </div>
+                <% } }) %>
+              </div>
+
+              <div class="m_m_imgWrap">
+                <% exhibition.forEach((item, i) => { if (i % 2 === 1) { %>
+                <div class="image">
+                  <a class="link_img" href="/exhibition/detail/<%= item.id %>"><img src="<%= item.img %>" /></a>
+                  <div class="overlay_wrap">
+                    <div class="overlay_top">
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                          <path
+                            d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="overlay_svg_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                          <path
+                            d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="overlay_bottom"></div>
+                  </div>
+                </div>
+                <% } }) %>
+              </div>
+
+
               <div class="mistDiv"></div>
             </div>
-            
           </div>
+
+
           <div class="profile_container">
             <div class="profile_middle_container">
               <div>
@@ -104,10 +211,10 @@
                     </div>
                     <div class="profile_01_btns">
                       <div>
-                        <button>이미지 편집</button>
+                        <button class="alert03">이미지 편집</button>
                       </div>
                       <div class="profile_download_btn">
-                        <button>다운로드</button>
+                        <button class="alert04">다운로드</button>
                       </div>
                     </div>
                   </div>
@@ -155,7 +262,7 @@
                       <p>IG: @cutecat | Twitter: cutecat</p>
                     </div>
                     <div class="profile_03_btn">
-                      <button>기부</button>
+                      <button class="alert05">기부</button>
                     </div>
                   </div>
                 </div>
