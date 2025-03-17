@@ -10,21 +10,21 @@ const pool = mysql.createPool({
 
 // 모든 데이터 가져오기
 const getAll = async () => {
-  const query = "SELECT * FROM users";
+  const query = "SELECT * FROM works";
   const [rows] = await pool.query(query);
   return rows;
 };
 
 // 해당 데이터 하나만 가져오기
 const getOne = async (userId) => {
-  const query = `SELECT * FROM users WHERE id = ${userId}`;
+  const query = `SELECT * FROM works WHERE id = ${userId}`;
   const [rows] = await pool.query(query);
   return rows;
 };
 
 // id 중복검사
 const getIdCheck = async (userId) => {
-  const query = `SELECT * FROM users WHERE userid = ?`;
+  const query = `SELECT * FROM works WHERE userid = ?`;
   const [rows] = await pool.query(query, [userId]);
   return rows;
 };
@@ -34,7 +34,7 @@ const postData = async (data) => {
   console.log(data);
   // return '확인완료';
   try {
-    const query = `INSERT INTO users (userid, name, comment, img, aiInfo) VALUES (?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO works (userid, name, comment, img, aiInfo) VALUES (?, ?, ?, ?, ?)`;
     await pool.query(query, [data.userid, data.name, data.comment, data.img, data.aiInfo]);
     return "데이터가 성공적으로 등록되었습니다.";
   } catch (e) {
@@ -45,7 +45,7 @@ const postData = async (data) => {
 
 // 해당 데이터(행) 삭제
 const deleteRow = async (id) => {
-  const query = `DELETE FROM users WHERE id = ${Number(id)}`;
+  const query = `DELETE FROM works WHERE id = ${Number(id)}`;
   try {
     await pool.query(query, [id]);
   } catch (e) {
@@ -55,12 +55,14 @@ const deleteRow = async (id) => {
 
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data) => {
-  const query = `UPDATE users SET name = ?, comment = ?, img = ?, aiInfo = ? WHERE id = ?`;
+  const query = `UPDATE works SET name = ?, comment = ?, img = ?, aiInfo = ? WHERE id = ?`;
   try {
     await pool.query(query, [data.name, data.comment, data.img, data.aiInfo, Number(data.id)]);
   } catch (e) {
     console.log("데이터 수정 실패", e)
   };
 }
+
+// 로그인
 
 module.exports = { getAll, getOne, postData, deleteRow, updateRow, getIdCheck };

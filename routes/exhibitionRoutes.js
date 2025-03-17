@@ -13,6 +13,8 @@ router.post('/post/test', upload.single('img'), exhibitionController.createTest)
 
 router.put('/update', upload.single('img'), exhibitionController.dataUpdate);
 
+// 로그인
+// router.post('/login', exhibitionController.loginProcess);
 
 // 해당 아이디로
 router.get('/detail/:id', exhibitionController.exhibitionOne);

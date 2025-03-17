@@ -76,4 +76,9 @@ const dataUpdate = async (req, res) => {
   }
 };
 
-module.exports = { exhibitionController, exhibitionOne, exhibition, createTest, deleteData, moveWrite, dataUpdate, inspectId };
+// 로그인
+// const loginProcess = async (req, res) => {
+
+// }
+
+module.exports = { exhibitionController, exhibitionOne, exhibition, createTest, deleteData, moveWrite, dataUpdate, inspectId, loginProcess };
